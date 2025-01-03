@@ -1,0 +1,62 @@
+# Use the latest Ubuntu image for AMD64 architecture
+FROM --platform=linux/amd64 ubuntu:latest
+
+LABEL image.author.name "Jatinder Singh"
+LABEL image.author.email "jatinder.singh@ndsu.edu"
+
+# Set environment variables for non-interactive installation and time zone
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/New_York
+
+# Install essential dependencies and development tools
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    unzip \
+    gcc \
+    g++ \
+    libz-dev \
+    libncurses-dev \
+    libbz2-dev \
+    liblzma-dev \
+    bzip2 \
+    make && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Download and install precompiled bwa-mem2 (recommended)
+RUN curl -L https://github.com/bwa-mem2/bwa-mem2/releases/download/v2.2.1/bwa-mem2-2.2.1_x64-linux.tar.bz2 \
+  | tar jxf - && \
+  cp bwa-mem2-2.2.1_x64-linux/bwa-mem2* /usr/local/bin
+
+# Download and install precompiled fastp v0.23.4
+RUN wget http://opengene.org/fastp/fastp.0.23.4 && \
+    mv fastp.0.23.4 fastp && \
+    chmod a+x ./fastp && \
+    cp fastp /usr/local/bin
+
+# Install STAR (version 2.7.11b)
+ARG STAR_VERSION=2.7.11b
+RUN wget --no-check-certificate https://github.com/alexdobin/STAR/archive/${STAR_VERSION}.zip && \
+    unzip ${STAR_VERSION}.zip && \
+    cp STAR-${STAR_VERSION}/bin/Linux_x86_64/STAR /usr/local/bin
+
+# Install Miniconda3 (conda initialization)
+RUN curl -LO https://repo.anaconda.com/miniconda/Miniconda3-py310_24.11.1-0-Linux-x86_64.sh && \
+    bash Miniconda3-py310_24.11.1-0-Linux-x86_64.sh -b -p /opt/conda && \
+    rm Miniconda3-py310_24.11.1-0-Linux-x86_64.sh && \
+    /opt/conda/bin/conda init bash
+
+# Add Conda to PATH
+ENV PATH="/opt/conda/bin:$PATH"
+
+# Install GATK4 and other necessary packages via Conda
+RUN conda install -c conda-forge openjdk=17 && \ 
+    conda install -y bioconda::gatk4=4.6.1.0 && \
+    conda install -y samtools && \
+    conda clean -a
+
+
+RUN conda install bioconda::fastqc && \
+    conda install bioconda::trimmomatic && \
+    conda install bioconda::multiqc && \
+    conda clean -a
