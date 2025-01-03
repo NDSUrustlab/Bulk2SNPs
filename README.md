@@ -38,7 +38,7 @@ git clone https://github.com/NDSUrustlab/Bulk2SNPs.git
 #### STEP IV: Run the pipeline 
 On local machine:
 ```bash
-nextflow run main.nf \
+./nextflow run main.nf \
   --bulk1 'Bulk1' \
   --bulk2 'Bulk2' \
   --genome 'genome.fasta' \
@@ -51,7 +51,7 @@ singularity pull bulk2snps.sif docker://jtndr/bulk2snps:latest
 ```
 
 ```bash
-nextflow run main.nf -with-singularity bulk2snps.sif \
+./nextflow run main.nf -with-singularity bulk2snps.sif \
   --bulk1 'Bulk1' \
   --bulk2 'Bulk2' \
   --genome 'genome.fasta' \
