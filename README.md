@@ -7,21 +7,21 @@ Bulk2SNPs is an automated pipeline to speed up SNP discovery from next-generatio
 ```md
 a) make a new folder for your analysis. E.g. Bulk2SNPs
 b) Inside this folder create two more folder:
-  i) data
+   i) data
   ii) genome or index (if you have index already generated)
 c) paste your illumina data in `data` folder and your genome files,
    such as fasta and gff3 (only for RNAseq data) files in `genome` folder
 
 Now, your folder structure will be as follows:
-- Bulk2SNPs
-  - data
-    - Bulk1_1.fastq
-    - Bulk1_2.fastq
-    - Bulk2_1.fastq
-    - Bulk2_2.fastq
-  - genome
-    - genome.fasta
-    - annotation.gff
+|- Bulk2SNPs
+  |- data
+    |- Bulk1_1.fastq
+    |- Bulk1_2.fastq
+    |- Bulk2_1.fastq
+    |- Bulk2_2.fastq
+  |- genome
+    |- genome.fasta
+    |- annotation.gff
 ```
 
 #### STEP II: Install docker and keep it running in the background
