@@ -63,7 +63,7 @@ nextflow run main.nf -with-singularity bulk2snps.sif \
 ========= B u l k 2 S N P s Pipeline =========
 ==============================================
    Usage:
-   nextflow run main.nf --bulk1 <Bulk1_name> --bulk2 <Bulk2_name> \
+   nextflow run main.nf --bulk1 <Bulk1_name> --bulk2 <Bulk2_name> 
                         --genome <genome_dir> --gff <annotation.gff3>
 
    Parameters:
