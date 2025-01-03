@@ -39,7 +39,6 @@ Now, your folder structure will be as follows:
 ├── media
 ├── modules
 ├── nextflow
-└── nextflow.config
 ```
 
 #### STEP IV: Run the pipeline 
