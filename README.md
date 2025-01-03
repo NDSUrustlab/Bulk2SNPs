@@ -9,7 +9,8 @@ a) make a new folder for your analysis. E.g. Bulk2SNPs
 b) Inside this folder create two more folder:
   i) data
   ii) genome or index (if you have index already generated)
-c) paste your illumina data in `data` folder and your genome files, such as fasta and gff3 (only for RNAseq data) files in `genome` folder
+c) paste your illumina data in `data` folder and your genome files, \
+   such as fasta and gff3 (only for RNAseq data) files in `genome` folder
 ```
 
 
