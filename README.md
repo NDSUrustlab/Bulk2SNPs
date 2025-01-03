@@ -38,7 +38,7 @@ Now, your folder structure will be as follows:
 ├── main.nf
 ├── media
 ├── modules
-├── nextflow
+└── nextflow
 ```
 
 #### STEP IV: Run the pipeline 
