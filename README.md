@@ -103,9 +103,9 @@ singularity pull bulk2snps.sif docker://jtndr/bulk2snps:latest
 You will have 6 folders in the output directory (default: results)
 ```md
 ├── final_SNPs
-│   ├── Bulks_SNPs.table  ## Use this file for downstream QTL mapping with QTLseqR
+│   ├── Bulks_SNPs.table  `Use this file for downstream QTL mapping with QTLseqR`
 │   └── Bulks_SNPs.vcf
-├── index  ## Based on you data (DNA/RNA), you can use this index directory for future analysis
+├── index  `Based on your data (DNA/RNA), you can use this index directory for future analysis`
 ├── mapped
 │   ├── Bulk1.sorted.bam
 │   ├── Bulk1.sorted.bam.csi
