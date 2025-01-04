@@ -16,7 +16,7 @@ Download the docker software based on your operating system from
 https://www.docker.com
 ```
 
-#### STEP II: Clone the Bulk2SNPs repo inside the folder created in STEP I 
+#### STEP II: Clone the Bulk2SNPs repo
 ```bash
 git clone https://github.com/NDSUrustlab/Bulk2SNPs.git
 ```
