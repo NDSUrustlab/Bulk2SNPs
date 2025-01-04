@@ -49,7 +49,7 @@ docker pull jtndr/bulk2snps:latest
 ```
 
 ```bash
-./nextflow run main.nf \
+./nextflow run main.nf -with-docker \
   --bulk1 'Bulk1' \
   --bulk2 'Bulk2' \
   --genome 'genome.fasta' \
@@ -99,6 +99,44 @@ singularity pull bulk2snps.sif docker://jtndr/bulk2snps:latest
 - Bam and index files are provided for visualization in any genome viewer
 - Provide SNPs table for downstream analysis with QTLseqR
 
+## Example use cases:
+#### 1) Paired-end DNA sequencing data
+```bash
+./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
+    --bulk1 'Bulk1Name' \
+    --bulk2 'Bulk2Name' \
+    --genome 'genome/genome.fasta'
+```
+#### 2) Paired-end RNA sequencing data
+```bash
+./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
+    --datatype 'RNA' \
+    --bulk1 'Bulk1Name' \
+    --bulk2 'Bulk2Name' \
+    --genome 'genome/genome.fasta' \
+    --gff 'genome/annotation.gff'
+```
+#### 3) Single-end DNA sequencing data
+```bash
+./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
+    --seqtype 'SE' \
+    --bulk1 'Bulk1Name' \
+    --bulk2 'Bulk2Name' \
+    --genome 'genome/genome.fasta'
+```
+#### 4) Single-end RNA sequencing data
+```bash
+./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
+    --datatype 'RNA' \
+    --seqtype 'SE' \
+    --bulk1 'Bulk1Name' \
+    --bulk2 'Bulk2Name' \
+    --genome 'genome/genome.fasta' \
+    --gff 'genome/annotation.gff'
+```
+
+Use `-resume` to start failed run from the same point where it fail.
+### If you are running the pipeline for second time and using the same genome and data type (DNA or RNA), you can use `index` folder from previous run.
 
 ## Here's the flowdiagram depicting pipeline's workflow
 ![](media/flowdiagram.png)
