@@ -128,9 +128,9 @@ You will have 6 folders in the output directory (default: results)
 #### 1) Paired-end DNA sequencing data
 ```bash
 ./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
-    --bulk1 'Bulk1Name' \
-    --bulk2 'Bulk2Name' \
-    --genome 'genome/genome.fasta'
+    --bulk1 Bulk1Name \
+    --bulk2 Bulk2Name \
+    --genome genome/genome.fasta
 ```
 #### 2) Paired-end RNA sequencing data
 ```bash
