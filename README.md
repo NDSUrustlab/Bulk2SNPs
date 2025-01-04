@@ -57,10 +57,10 @@ docker pull jtndr/bulk2snps:latest
 
 ```bash
 ./nextflow run main.nf -with-docker \
-  --bulk1 'Bulk1' \
-  --bulk2 'Bulk2' \
-  --genome 'genome.fasta' \
-  --gff3 'annotation.gff3
+  --bulk1 Bulk1 \
+  --bulk2 Bulk2 \
+  --genome genome.fasta \
+  --gff3 annotation.gff3
 ```
 
 On High Performance Computing (HPC) clusters:
@@ -71,10 +71,10 @@ singularity pull bulk2snps.sif docker://jtndr/bulk2snps:latest
 
 ```bash
 ./nextflow run main.nf -with-singularity bulk2snps.sif \
-  --bulk1 'Bulk1' \
-  --bulk2 'Bulk2' \
-  --genome 'genome.fasta' \
-  --gff3 'annotation.gff3
+  --bulk1 Bulk1 \
+  --bulk2 Bulk2 \
+  --genome genome.fasta \
+  --gff3 annotation.gff3
 ```
 
 ## Parameters:
@@ -135,29 +135,29 @@ You will have 6 folders in the output directory (default: results)
 #### 2) Paired-end RNA sequencing data
 ```bash
 ./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
-    --datatype 'RNA' \
-    --bulk1 'Bulk1Name' \
-    --bulk2 'Bulk2Name' \
-    --genome 'genome/genome.fasta' \
-    --gff 'genome/annotation.gff'
+    --datatype RNA \
+    --bulk1 Bulk1Name \
+    --bulk2 Bulk2Name \
+    --genome genome/genome.fasta \
+    --gff genome/annotation.gff
 ```
 #### 3) Single-end DNA sequencing data
 ```bash
 ./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
-    --seqtype 'SE' \
-    --bulk1 'Bulk1Name' \
-    --bulk2 'Bulk2Name' \
-    --genome 'genome/genome.fasta'
+    --seqtype SE \
+    --bulk1 Bulk1Name \
+    --bulk2 Bulk2Name \
+    --genome genome/genome.fasta
 ```
 #### 4) Single-end RNA sequencing data
 ```bash
 ./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
-    --datatype 'RNA' \
-    --seqtype 'SE' \
-    --bulk1 'Bulk1Name' \
-    --bulk2 'Bulk2Name' \
-    --genome 'genome/genome.fasta' \
-    --gff 'genome/annotation.gff'
+    --datatype RNA \
+    --seqtype SE \
+    --bulk1 Bulk1Name \
+    --bulk2 Bulk2Name \
+    --genome genome/genome.fasta \
+    --gff genome/annotation.gff
 ```
 
 Use `-resume` to start failed run from the same point where it fail.
