@@ -2,6 +2,13 @@
 ---
 Bulk2SNPs is an automated pipeline to speed up SNP discovery from next-generation sequencing data, i.e., DNA and RNA, generated from contrasting bulks to map quantitative trait loci (QTLs) for desired traits. 
 
+## Features:
+- No software installation required (docker/singularity containers are implemented)
+- No bioinformatics expertise required
+- Fast and reproducible
+- Bam and index files are provided for visualization in any genome viewer
+- Provide SNPs table for downstream analysis with QTLseqR
+
 ## Usage: 
 #### STEP I: Install docker and keep it running in the background
 ```md
@@ -92,13 +99,11 @@ singularity pull bulk2snps.sif docker://jtndr/bulk2snps:latest
    --help         Display this help message
 ```
 
-## Features:
-- No software installation required (docker/singularity containers are implemented)
-- No bioinformatics expertise required
-- Fast and reproducible
-- Bam and index files are provided for visualization in any genome viewer
-- Provide SNPs table for downstream analysis with QTLseqR
+## Output files:
+You will have 6 folders in the output directory (default: results)
+```md
 
+```
 ## Example use cases:
 ### If you are running the pipeline for second time and using the same genome and data type (DNA or RNA), you can use `index` folder from previous run.
 #### 1) Paired-end DNA sequencing data
