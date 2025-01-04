@@ -100,6 +100,7 @@ singularity pull bulk2snps.sif docker://jtndr/bulk2snps:latest
 - Provide SNPs table for downstream analysis with QTLseqR
 
 ## Example use cases:
+### If you are running the pipeline for second time and using the same genome and data type (DNA or RNA), you can use `index` folder from previous run.
 #### 1) Paired-end DNA sequencing data
 ```bash
 ./nextflow run main.nf -with-singularity ./Bulk2SNPs.sif \ ## use `-with-docker` for local machine
@@ -136,7 +137,6 @@ singularity pull bulk2snps.sif docker://jtndr/bulk2snps:latest
 ```
 
 Use `-resume` to start failed run from the same point where it fail.
-### If you are running the pipeline for second time and using the same genome and data type (DNA or RNA), you can use `index` folder from previous run.
 
 ## Here's the flowdiagram depicting pipeline's workflow
 ![](media/flowdiagram.png)
